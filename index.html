@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Заголовок -->
+
+<head>
+    <title>Feedback form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">                                  <!-- Здесь и далее в проекте будет использоваться кодировка utf-8 -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">    <!-- Подключение стилей bootstrap -->
+    <link rel="stylesheet" href="css/animate.css">          <!-- Подключение стилей анимации -->
+</head>
+
+<!-- Конец заголовка -->
+
+<!-- Тело документа -->
+
+<body style="background-color: #5371a3">    <!-- Установим светло-синий фон проекта -->
+<div class="row">
+<div class="col-sm-6 col-sm-offset-3">      <!-- Подбираем ширину макета -->
+    <div class="well" style="margin-top: 10%;">
+    <h3>Обратная связь</h3>
+
+    <!-- Форма обратной связи -->
+
+    <form role="form" id="contactForm" data-toggle="validator" class="shake">
+        <div class="row">                       <!-- Создаем строку из элементов col -->
+
+            <!-- Поле ввода имени пользователя -->
+            <div class="form-group col-sm-6">   <!-- Подбираем ширину для ввода имени -->
+                <label for="name" class="h4">Ваше имя</label>
+                <input type="text" class="form-control" id="name" placeholder="Введите Ваше имя" required data-error="Как к Вам обращаться?">
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group col-sm-6">   <!-- Подбираем ширину для ввода электронной почты -->
+                <label for="email" class="h4">Ваша электронная почта</label>
+                <input type="email" class="form-control" id="email" placeholder="Введите Ваш e-mail" required data-error="Куда Вам направить ответ?">
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <!-- Конец формы поля ввода имени -->
+
+        <!-- Поле ввода сообщения -->
+        <div class="form-group">
+            <label for="message" class="h4 ">Сообщение</label>
+            <textarea id="message" class="form-control" rows="5" placeholder="Введите текст сообщения не менее 20 символов" minlength="20"
+              maxlength="500" required data-error="Что Вы хотите узнать?"></textarea>
+            <div class="help-block with-errors"></div>
+        </div>
+        <!-- Конец поля ввода сообщения -->
+
+        <!--Блок капчи-->        
+      <img id="img-captcha" src="php/captcha.php">  <!-- Изображение капчи -->
+          <!--Элемент, запрашивающий новый код CAPTCHA-->
+          <div id="reload-captcha" class="btn btn-default"><i class="glyphicon glyphicon-refresh"></i> Обновить</div>
+
+          <!--Поле для ввода кода CAPTCHA-->
+          <div class="form-group has-feedback">
+                <label id="label-captcha" for="captcha" class="control-label">Пожалуйста, введите указанный на изображении код:</label>
+            <input id="text-captcha" name="captcha" type="text" class="form-control" required="required" value="">
+            <span class="glyphicon form-control-feedback"></span>
+        </div>
+        <!-- Конец блока капчи-->
+
+        <!-- Кнопка для отправки сообщения-->
+        <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Отправить</button>
+        <div id="msgSubmit" class="h3 text-center hidden"></div>
+        <div class="clearfix"></div>
+    </form>
+
+    <!-- Конец формы обратной связи -->
+
+    </div>
+</div>
+</div>
+</body>
+
+<!-- Конец тела документа -->
+
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>  <!--Подключение библиотеки jQuery-->
+<script type="text/javascript" src="js/validator.min.js"></script>      <!-- Библиотека валидатора форм -->
+<script type="text/javascript" src="js/form-scripts.js"></script>       <!-- java скрипт для обработки формы -->
+
+</html>
